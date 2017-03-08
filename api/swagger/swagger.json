@@ -1,0 +1,1240 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/t_feedback/": {
+            "get": {
+                "tags": [
+                    "t_feedback"
+                ],
+                "description": "get TFeedback",
+                "operationId": "TFeedbackController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedback"
+                        }
+                    },
+                    "403": {}
+                }
+            },
+            "post": {
+                "tags": [
+                    "t_feedback"
+                ],
+                "description": "create TFeedback",
+                "operationId": "TFeedbackController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedback content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedback"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TFeedback"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback/{id}": {
+            "get": {
+                "tags": [
+                    "t_feedback"
+                ],
+                "description": "get TFeedback by id",
+                "operationId": "TFeedbackController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedback"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "t_feedback"
+                ],
+                "description": "update the TFeedback",
+                "operationId": "TFeedbackController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedback content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedback"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedback"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "t_feedback"
+                ],
+                "description": "delete the TFeedback",
+                "operationId": "TFeedbackController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_action/": {
+            "get": {
+                "tags": [
+                    "t_feedback_action"
+                ],
+                "description": "get TFeedbackAction",
+                "operationId": "TFeedbackActionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackAction"
+                        }
+                    },
+                    "403": {}
+                }
+            },
+            "post": {
+                "tags": [
+                    "t_feedback_action"
+                ],
+                "description": "create TFeedbackAction",
+                "operationId": "TFeedbackActionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackAction content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackAction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TFeedbackAction"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_action/{id}": {
+            "get": {
+                "tags": [
+                    "t_feedback_action"
+                ],
+                "description": "get TFeedbackAction by id",
+                "operationId": "TFeedbackActionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackAction"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "t_feedback_action"
+                ],
+                "description": "update the TFeedbackAction",
+                "operationId": "TFeedbackActionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackAction content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackAction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackAction"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "t_feedback_action"
+                ],
+                "description": "delete the TFeedbackAction",
+                "operationId": "TFeedbackActionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_feature/": {
+            "get": {
+                "tags": [
+                    "t_feedback_feature"
+                ],
+                "description": "get TFeedbackFeature",
+                "operationId": "TFeedbackFeatureController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackFeature"
+                        }
+                    },
+                    "403": {}
+                }
+            },
+            "post": {
+                "tags": [
+                    "t_feedback_feature"
+                ],
+                "description": "create TFeedbackFeature",
+                "operationId": "TFeedbackFeatureController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackFeature content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackFeature"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TFeedbackFeature"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_feature/{id}": {
+            "get": {
+                "tags": [
+                    "t_feedback_feature"
+                ],
+                "description": "get TFeedbackFeature by id",
+                "operationId": "TFeedbackFeatureController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackFeature"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "t_feedback_feature"
+                ],
+                "description": "update the TFeedbackFeature",
+                "operationId": "TFeedbackFeatureController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackFeature content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackFeature"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackFeature"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "t_feedback_feature"
+                ],
+                "description": "delete the TFeedbackFeature",
+                "operationId": "TFeedbackFeatureController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_status/": {
+            "get": {
+                "tags": [
+                    "t_feedback_status"
+                ],
+                "description": "get TFeedbackStatus",
+                "operationId": "TFeedbackStatusController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackStatus"
+                        }
+                    },
+                    "403": {}
+                }
+            },
+            "post": {
+                "tags": [
+                    "t_feedback_status"
+                ],
+                "description": "create TFeedbackStatus",
+                "operationId": "TFeedbackStatusController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackStatus content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackStatus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TFeedbackStatus"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_status/{id}": {
+            "get": {
+                "tags": [
+                    "t_feedback_status"
+                ],
+                "description": "get TFeedbackStatus by id",
+                "operationId": "TFeedbackStatusController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackStatus"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "t_feedback_status"
+                ],
+                "description": "update the TFeedbackStatus",
+                "operationId": "TFeedbackStatusController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackStatus content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackStatus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackStatus"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "t_feedback_status"
+                ],
+                "description": "delete the TFeedbackStatus",
+                "operationId": "TFeedbackStatusController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_support_poc/": {
+            "get": {
+                "tags": [
+                    "t_feedback_support_poc"
+                ],
+                "description": "get TFeedbackSupportPoc",
+                "operationId": "TFeedbackSupportPocController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackSupportPoc"
+                        }
+                    },
+                    "403": {}
+                }
+            },
+            "post": {
+                "tags": [
+                    "t_feedback_support_poc"
+                ],
+                "description": "create TFeedbackSupportPoc",
+                "operationId": "TFeedbackSupportPocController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackSupportPoc content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackSupportPoc"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TFeedbackSupportPoc"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_support_poc/{id}": {
+            "get": {
+                "tags": [
+                    "t_feedback_support_poc"
+                ],
+                "description": "get TFeedbackSupportPoc by id",
+                "operationId": "TFeedbackSupportPocController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackSupportPoc"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "t_feedback_support_poc"
+                ],
+                "description": "update the TFeedbackSupportPoc",
+                "operationId": "TFeedbackSupportPocController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackSupportPoc content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackSupportPoc"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackSupportPoc"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "t_feedback_support_poc"
+                ],
+                "description": "delete the TFeedbackSupportPoc",
+                "operationId": "TFeedbackSupportPocController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_type/": {
+            "get": {
+                "tags": [
+                    "t_feedback_type"
+                ],
+                "description": "get TFeedbackType",
+                "operationId": "TFeedbackTypeController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackType"
+                        }
+                    },
+                    "403": {}
+                }
+            },
+            "post": {
+                "tags": [
+                    "t_feedback_type"
+                ],
+                "description": "create TFeedbackType",
+                "operationId": "TFeedbackTypeController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackType content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackType"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TFeedbackType"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/t_feedback_type/{id}": {
+            "get": {
+                "tags": [
+                    "t_feedback_type"
+                ],
+                "description": "get TFeedbackType by id",
+                "operationId": "TFeedbackTypeController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackType"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "t_feedback_type"
+                ],
+                "description": "update the TFeedbackType",
+                "operationId": "TFeedbackTypeController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TFeedbackType content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackType"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/models.TFeedbackType"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "t_feedback_type"
+                ],
+                "description": "delete the TFeedbackType",
+                "operationId": "TFeedbackTypeController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        ".Time": {
+            "type": "object"
+        },
+        "models.TFeedback": {
+            "title": "TFeedback",
+            "type": "object",
+            "properties": {
+                "AppName": {
+                    "type": "string"
+                },
+                "AppVersion": {
+                    "type": "string"
+                },
+                "CarrierCode": {
+                    "type": "string"
+                },
+                "CarrierName": {
+                    "type": "string"
+                },
+                "Content": {
+                    "type": "string"
+                },
+                "CreatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                },
+                "DeviceId": {
+                    "type": "string"
+                },
+                "DeviceName": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Mobileb2version": {
+                    "type": "string"
+                },
+                "Platform": {
+                    "type": "string"
+                },
+                "PlatformVersion": {
+                    "type": "string"
+                },
+                "SchoolName": {
+                    "type": "string"
+                },
+                "SchoolPingUrl": {
+                    "type": "string"
+                },
+                "SdkVersion": {
+                    "type": "string"
+                },
+                "TimeZone": {
+                    "type": "string"
+                },
+                "UserAgent": {
+                    "type": "string"
+                },
+                "UserId": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.TFeedbackAction": {
+            "title": "TFeedbackAction",
+            "type": "object",
+            "properties": {
+                "ActionId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "CreatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Impact": {
+                    "type": "string"
+                },
+                "QuarterCount": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Requirement": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "UpdatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                }
+            }
+        },
+        "models.TFeedbackFeature": {
+            "title": "TFeedbackFeature",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "CreatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Status": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "UpdatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                }
+            }
+        },
+        "models.TFeedbackStatus": {
+            "title": "TFeedbackStatus",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "CreatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "UpdatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                }
+            }
+        },
+        "models.TFeedbackSupportPoc": {
+            "title": "TFeedbackSupportPoc",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "CreatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "UpdatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                }
+            }
+        },
+        "models.TFeedbackType": {
+            "title": "TFeedbackType",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "CreatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Status": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "UpdatedTime": {
+                    "$ref": "#/definitions/time.Time"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "t_feedback",
+            "description": "TFeedbackController operations for TFeedback\n"
+        },
+        {
+            "name": "t_feedback_action",
+            "description": "TFeedbackActionController operations for TFeedbackAction\n"
+        },
+        {
+            "name": "t_feedback_feature",
+            "description": "TFeedbackFeatureController operations for TFeedbackFeature\n"
+        },
+        {
+            "name": "t_feedback_status",
+            "description": "TFeedbackStatusController operations for TFeedbackStatus\n"
+        },
+        {
+            "name": "t_feedback_support_poc",
+            "description": "TFeedbackSupportPocController operations for TFeedbackSupportPoc\n"
+        },
+        {
+            "name": "t_feedback_type",
+            "description": "TFeedbackTypeController operations for TFeedbackType\n"
+        }
+    ]
+}
