@@ -15,14 +15,40 @@ import (
 
 func init() {
 	ns := beego.NewNamespace("/v1",
-		beego.NSNamespace("/object",
+
+		beego.NSNamespace("/t_feedback",
 			beego.NSInclude(
-				&controllers.ObjectController{},
+				&controllers.TFeedbackController{},
 			),
 		),
-		beego.NSNamespace("/user",
+
+		beego.NSNamespace("/t_feedback_action",
 			beego.NSInclude(
-				&controllers.UserController{},
+				&controllers.TFeedbackActionController{},
+			),
+		),
+
+		beego.NSNamespace("/t_feedback_feature",
+			beego.NSInclude(
+				&controllers.TFeedbackFeatureController{},
+			),
+		),
+
+		beego.NSNamespace("/t_feedback_status",
+			beego.NSInclude(
+				&controllers.TFeedbackStatusController{},
+			),
+		),
+
+		beego.NSNamespace("/t_feedback_support_poc",
+			beego.NSInclude(
+				&controllers.TFeedbackSupportPocController{},
+			),
+		),
+
+		beego.NSNamespace("/t_feedback_type",
+			beego.NSInclude(
+				&controllers.TFeedbackTypeController{},
 			),
 		),
 	)
